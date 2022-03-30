@@ -1,2 +1,4 @@
-package com.library.controller;public class BookCopyNotFoundException {
+package com.library.controller;
+
+public class BookCopyNotFoundException extends Exception {
 }

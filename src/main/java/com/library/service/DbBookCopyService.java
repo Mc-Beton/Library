@@ -2,6 +2,7 @@ package com.library.service;
 
 import com.library.controller.BookCopyNotFoundException;
 import com.library.domain.BookCopy;
+import com.library.domain.BookStatusType;
 import com.library.repository.BookCopyRepository;
 import com.library.repository.BookRepository;
 import com.library.repository.BookStatusRepository;
@@ -11,17 +12,17 @@ import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class DbService {
+public class DbBookCopyService {
 
     private BookCopyRepository bookCopyRepository;
     private BookRepository bookRepository;
     private BookStatusRepository bookStatusRepository;
     private UserRepository userRepository;
 
-    //BookCopy Repository
     public List<BookCopy> getAllTasks() {
         return bookCopyRepository.findAll();
     }
@@ -30,13 +31,16 @@ public class DbService {
         return bookCopyRepository.findById(bookCopyId).orElseThrow(BookCopyNotFoundException::new);
     }
 
-    public BookCopy save(final BookCopy bookCopy) {
+    public BookCopy saveBookCopy(final BookCopy bookCopy) {
         return bookCopyRepository.save(bookCopy);
     }
 
-    public void deleteById(final Long bookCopyId) {
+    public void deleteBookCopy(final Long bookCopyId) {
         bookCopyRepository.deleteById(bookCopyId);
     }
 
-    
+    public Optional<BookCopy> findByStatus(final BookStatusType bookStatusType) {
+        return bookCopyRepository.findByStatus(bookStatusType);
+    }
+
 }

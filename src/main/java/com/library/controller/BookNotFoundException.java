@@ -1,2 +1,4 @@
-package com.library.service;public class BookNotFoundException {
+package com.library.controller;
+
+public class BookNotFoundException extends Exception {
 }
