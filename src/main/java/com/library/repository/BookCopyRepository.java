@@ -1,4 +1,4 @@
-package com.library.dao;
+package com.library.repository;
 
 import com.library.domain.BookCopy;
 import com.library.domain.BookStatusType;
@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 @Transactional
-public interface BookCopyDao extends CrudRepository<BookCopy, Long> {
+public interface BookCopyRepository extends CrudRepository<BookCopy, Long> {
 
     Optional<BookCopy> findByStatus(BookStatusType bookStatusType);
 

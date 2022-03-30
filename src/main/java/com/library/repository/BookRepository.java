@@ -1,4 +1,4 @@
-package com.library.dao;
+package com.library.repository;
 
 import com.library.domain.Book;
 import org.springframework.data.repository.CrudRepository;
@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public interface BookDao extends CrudRepository<Book, Long> {
+public interface BookRepository extends CrudRepository<Book, Long> {
 
     @Override
     List<Book> findAll();
