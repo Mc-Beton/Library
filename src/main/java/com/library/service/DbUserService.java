@@ -21,7 +21,7 @@ public class DbUserService {
 
     User saveNewUser(User user) {return userRepository.save(user);}
 
-    User getUser(Long id) throws UserNotFoundException {
+    User getUserById(Long id) throws UserNotFoundException {
         return userRepository.findById(id).orElseThrow(UserNotFoundException::new);
     }
 }

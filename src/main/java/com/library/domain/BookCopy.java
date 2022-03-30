@@ -27,4 +27,10 @@ public class BookCopy {
         this.status = status;
         this.book = book;
     }
+
+    public BookCopy(Long id, BookStatusType status, Book book) {
+        this.id = id;
+        this.status = status;
+        this.book = book;
+    }
 }

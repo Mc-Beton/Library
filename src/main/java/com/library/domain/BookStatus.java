@@ -37,4 +37,12 @@ public class BookStatus {
         this.rentalDate = rentalDate;
         this.returnDate = returnDate;
     }
+
+    public BookStatus(Long id, BookCopy bookCopy, User user, LocalDate rentalDate, LocalDate returnDate) {
+        this.id =id;
+        this.bookCopy = bookCopy;
+        this.user = user;
+        this.rentalDate = rentalDate;
+        this.returnDate = returnDate;
+    }
 }

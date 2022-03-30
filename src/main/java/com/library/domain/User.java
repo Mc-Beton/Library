@@ -34,4 +34,11 @@ public class User {
         this.surname = surname;
         this.accountDate = accountDate;
     }
+
+    public User(Long id, String name, String surname, LocalDate accountDate) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.accountDate = accountDate;
+    }
 }
