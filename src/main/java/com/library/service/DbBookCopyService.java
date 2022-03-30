@@ -8,6 +8,7 @@ import com.library.repository.BookRepository;
 import com.library.repository.BookStatusRepository;
 import com.library.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.config.Task;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +19,8 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class DbBookCopyService {
 
+    @Autowired
     private BookCopyRepository bookCopyRepository;
-    private BookRepository bookRepository;
-    private BookStatusRepository bookStatusRepository;
-    private UserRepository userRepository;
 
     public List<BookCopy> getAllTasks() {
         return bookCopyRepository.findAll();

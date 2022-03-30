@@ -1,29 +1,40 @@
 package com.library.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
-@Entity(name = "OPERATION")
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity(name = "BOOK_STATUS")
 public class BookStatus {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "BOOK_ID")
-    private BookCopy bookCopyId;
+    private BookCopy bookCopy;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne
     @JoinColumn(name = "USER_ID")
-    private User userId;
+    private User user;
 
     @Column(name = "RENTAL_DATE")
     private LocalDate rentalDate;
 
     @Column(name = "RETURN_DATE")
     private LocalDate returnDate;
+
+    public BookStatus(BookCopy bookCopy, User user, LocalDate rentalDate, LocalDate returnDate) {
+        this.bookCopy = bookCopy;
+        this.user = user;
+        this.rentalDate = rentalDate;
+        this.returnDate = returnDate;
+    }
 }

@@ -5,6 +5,7 @@ import com.library.controller.UserNotFoundException;
 import com.library.domain.User;
 import com.library.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DbUserService {
 
+    @Autowired
     private UserRepository userRepository;
 
     List<User> getUsers() {return userRepository.findAll();}

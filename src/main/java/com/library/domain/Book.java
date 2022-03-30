@@ -5,17 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "book")
+@Entity(name = "BOOK")
 public class Book {
 
     @Id
-    @GeneratedValue
+    @NotNull
+    @GeneratedValue()
+    @Column(name = "ID", unique = true)
     private Long id;
 
     @Column(name = "TITLE")
@@ -34,4 +37,10 @@ public class Book {
             fetch = FetchType.LAZY
     )
     public List<BookCopy> bookList = new ArrayList<>();
+
+    public Book(String title, String author, Integer publicationYear) {
+        this.title = title;
+        this.author = author;
+        this.publicationYear = publicationYear;
+    }
 }

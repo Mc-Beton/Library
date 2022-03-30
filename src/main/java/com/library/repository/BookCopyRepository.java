@@ -1,5 +1,6 @@
 package com.library.repository;
 
+import com.library.domain.Book;
 import com.library.domain.BookCopy;
 import com.library.domain.BookStatusType;
 import org.springframework.data.repository.CrudRepository;
@@ -23,4 +24,9 @@ public interface BookCopyRepository extends CrudRepository<BookCopy, Long> {
 
     @Override
     void deleteById(Long id);
+
+    void deleteALLByBook(Book book);
+
+    @Override
+    Optional<BookCopy> findById(Long id);
 }

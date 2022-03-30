@@ -4,6 +4,7 @@ import com.library.controller.BookNotFoundException;
 import com.library.domain.Book;
 import com.library.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class DbBookService {
 
+    @Autowired
     private BookRepository bookRepository;
 
     public List<Book> getAllBooks() {return bookRepository.findAll();}
