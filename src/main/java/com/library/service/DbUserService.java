@@ -1,7 +1,6 @@
 package com.library.service;
 
-import com.library.controller.BookNotFoundException;
-import com.library.controller.UserNotFoundException;
+import com.library.controller.exceptions.UserNotFoundException;
 import com.library.domain.User;
 import com.library.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -17,11 +16,16 @@ public class DbUserService {
     @Autowired
     private UserRepository userRepository;
 
-    List<User> getUsers() {return userRepository.findAll();}
+    public List<User> getUsers() {return userRepository.findAll();}
 
-    User saveNewUser(User user) {return userRepository.save(user);}
+    public User saveNewUser(User user) {return userRepository.save(user);}
 
-    User getUserById(Long id) throws UserNotFoundException {
+    public User getUserById(Long id) throws UserNotFoundException {
         return userRepository.findById(id).orElseThrow(UserNotFoundException::new);
     }
+
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
 }

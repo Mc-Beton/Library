@@ -8,7 +8,6 @@ import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 @Entity(name = "BOOK_STATUS")
 public class BookStatus {

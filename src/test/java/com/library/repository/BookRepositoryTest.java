@@ -25,7 +25,7 @@ class BookRepositoryTest {
         assertEquals(1, repository.findAll().size());
 
         //Clean up
-        repository.deleteById(1L);
+        repository.deleteAll();
     }
 
 }

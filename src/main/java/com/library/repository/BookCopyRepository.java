@@ -29,4 +29,6 @@ public interface BookCopyRepository extends CrudRepository<BookCopy, Long> {
 
     @Override
     Optional<BookCopy> findById(Long id);
+
+    List<BookCopy> findByBook(Optional<Book> book);
 }
